@@ -4,3 +4,13 @@ bower_components/
 
 build/
 dist/
+
+##Dependencies##
+package.json
+
+##Task Runner##
+Gruntfile.js
+
+##Misc##
+thesisREQ.txt
+thesis_ideas.md
