@@ -11,5 +11,5 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+install: npm install
 script: ./test/test.js
-sudo: false
