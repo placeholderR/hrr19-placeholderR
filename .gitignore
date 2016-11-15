@@ -6,7 +6,6 @@ build/
 dist/
 
 ##Dependencies##
-package.json
 tsconfig.json
 webpack.config.js
 

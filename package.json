@@ -1,0 +1,38 @@
+{
+  "name": "stageup",
+  "version": "0.0.1",
+  "description": "product/order tracking app catered to individual studios.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkennedy3161/placeholderR.git"
+  },
+  "author": "Jarrett Kennedy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkennedy3161/placeholderR/issues"
+  },
+  "homepage": "https://github.com/jkennedy3161/placeholderR#readme",
+  "dependencies": {
+    "@types/react": "^0.14.48",
+    "@types/react-dom": "^0.14.18",
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "mocha": "^3.1.2",
+    "mysql": "github:mysqljs/mysql",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "request": "^2.78.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^1.2.1"
+  }
+}
