@@ -6,7 +6,8 @@ build/
 dist/
 
 ##Dependencies##
-package.json
+tsconfig.json
+webpack.config.js
 
 ##Task Runner##
 Gruntfile.js
