@@ -12,4 +12,3 @@ addons:
     packages:
       - g++-4.8
 script: ./test/test.js
-sudo: required
