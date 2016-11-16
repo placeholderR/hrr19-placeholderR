@@ -1,12 +1,12 @@
-# Project Name
+# stageUp
 
-> Pithy project description
+> App for tracking the stages of a order id for studio clients
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Jarrett Kennedy
+  - __Scrum Master__: Jarrett Kennedy
+  - __Development Team Members__: Jarrett Kennedy, Jarrett Kennedy
 
 ## Table of Contents
 
