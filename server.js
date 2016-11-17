@@ -1,14 +1,28 @@
 'use strict';
 
 var express = require('express');
-var path = require('path');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config.js');
 var app = express();
+
+var compiler = webpack(webpackConfig);
 
 // port setup
 app.set('port', process.env.PORT || 3000);
 
 // serving static files
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(__dirname + '/dist'));
+
+app.use(webpackDevMiddleware(compiler, {
+  hot: true,
+  filename: 'bundle.js',
+  publicPath: '/',
+  stats: {
+    colors: true,
+  },
+  historyApiFallback: true,
+}));
 
 app.listen(app.get('port'), function() {
   console.info('server is listening to http://localhost:%s', app.get('port'));

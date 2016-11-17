@@ -4,6 +4,8 @@
   "description": "product/order tracking app catered to individual studios.",
   "main": "index.js",
   "scripts": {
+    "compile": "webpack",
+    "start": "nodemon server.js",
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
@@ -27,7 +29,8 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "request": "^2.78.0",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
