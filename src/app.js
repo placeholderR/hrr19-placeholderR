@@ -1,5 +1,6 @@
 import React from 'react';
 import StudiosList from './studiosList';
+import StagesList from './stagesList'
 
 const studios = [
   {
@@ -14,11 +15,18 @@ const studios = [
 
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      studios
+    };
+  }
   render() {
     return(
       <div>
         <h1>stageUp - Track your order stages with ease!</h1>
-        <StudiosList />
+        <StudiosList studios={this.state.studios}/>
+        <StagesList />
       </div>
     )
   }
