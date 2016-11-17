@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import StagesListItem from './stagesListItem';
 
 const style = {
   'backgroundColor': 'grey',
@@ -13,11 +14,17 @@ const style = {
 };
 
 export default class StagesList extends React.Component {
+  renderItems() {
+    return _.map(this.props.tickets, (ticket, index) => <StagesListItem key={index} {...ticket} />);
+  }
   render() {
     return(
       <div id='stage' style={{'padding': '5em'}}>
         <div style={style}>
           <span>Image Match</span>
+          {this.renderItems()}
+          <button>+</button>
+          <button>-</button>
         </div>
         <div style={style}>
           <span>DP2</span>
