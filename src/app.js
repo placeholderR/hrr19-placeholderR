@@ -1,7 +1,8 @@
 import React from 'react';
 import StudiosList from './studiosList';
-import StagesList from './stagesList'
-import Nav from './nav'
+import StagesList from './stagesList';
+import Nav from './nav';
+import Ticket from './ticket';
 
 const studios = [
   {
@@ -28,6 +29,7 @@ export default class App extends React.Component {
         <Nav />
         <h1>stageUp - Track your order stages with ease!</h1>
         <StudiosList studios={this.state.studios}/>
+        <Ticket />
         <StagesList />
       </div>
     )
