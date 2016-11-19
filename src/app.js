@@ -20,7 +20,6 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      studios,
       tickets: []
     };
   }
@@ -29,7 +28,6 @@ export default class App extends React.Component {
       <div>
         <Nav />
         <h1>stageUp - Track your order stages with ease!</h1>
-        <StudiosList studios={this.state.studios}/>
         <Ticket
           createTicket={this.createTicket.bind(this)}
         />
@@ -40,6 +38,7 @@ export default class App extends React.Component {
     )
   }
   createTicket(ticket) {
+    console.log('our object',ticket);
     this.state.tickets.push({
       ticket
     });
