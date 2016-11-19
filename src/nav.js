@@ -12,9 +12,9 @@ export default class Nav extends React.Component {
         <button>Studios</button>
         <button onClick={this.handleLogOut.bind(this)} ref='logOut'>Log Out</button>
       </nav>
-    )
+    );
   }
   handleLogOut(e) {
-    console.log(this.refs.logOut);
+    // console.log(this.refs.logOut);
   }
 }

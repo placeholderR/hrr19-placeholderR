@@ -9,8 +9,10 @@ dist/
 webpack.config.js
 .eslintignore
 .eslintrc
+.lintstagedrc
 eslint.json
 package.json
+
 
 ##Task Runner##
 Gruntfile.js
