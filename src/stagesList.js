@@ -23,8 +23,6 @@ export default class StagesList extends React.Component {
         <div style={style}>
           <span>Image Match</span>
           {this.renderItems()}
-          <button>+</button>
-          <button>-</button>
         </div>
         <div style={style}>
           <span>DP2</span>
