@@ -7,7 +7,8 @@
     "lint-staged": "lint-staged",
     "compile": "webpack",
     "start": "node server.js",
-    "test": "./node_modules/.bin/mocha --reporter spec --compilers js:babel-core/register **/*test.js"
+    "test": "./node_modules/.bin/mocha --reporter spec --compilers js:babel-core/register **/*test.js",
+    "post-install": "webpack"
   },
   "lint-staged": { "*.js": "eslint" },
   "pre-commit": "lint-staged",
