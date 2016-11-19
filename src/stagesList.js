@@ -48,6 +48,6 @@ export default class StagesList extends React.Component {
           <span>Invoiced</span>
         </div>
       </div>
-    )
+    );
   }
 }
