@@ -1,8 +1,8 @@
 import React from 'react';
 
 const style = {
-  'float': 'right',
-  'display': 'block'
+  display: 'block',
+  marginLeft: '60%'
 };
 
 export default class Nav extends React.Component {
@@ -10,8 +10,11 @@ export default class Nav extends React.Component {
     return(
       <nav style={style}>
         <button>Studios</button>
-        <button>Log Out</button>
+        <button onClick={this.handleLogOut.bind(this)} ref='logOut'>Log Out</button>
       </nav>
     )
+  }
+  handleLogOut(e) {
+    console.log(this.refs.logOut);
   }
 }
