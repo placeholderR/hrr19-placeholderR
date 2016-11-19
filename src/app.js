@@ -35,10 +35,10 @@ export default class App extends React.Component {
           tickets={this.state.tickets}
         />
       </div>
-    )
+    );
   }
   createTicket(ticket) {
-    console.log('our object',ticket);
+    // console.log('our object',ticket);
     this.state.tickets.push({
       ticket
     });

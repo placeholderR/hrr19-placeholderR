@@ -7,6 +7,10 @@ dist/
 
 ##Dependencies##
 webpack.config.js
+.eslintignore
+.eslintrc
+eslint.json
+package.json
 
 ##Task Runner##
 Gruntfile.js
