@@ -6,8 +6,13 @@ build/
 dist/
 
 ##Dependencies##
-tsconfig.json
 webpack.config.js
+.eslintignore
+.eslintrc
+.lintstagedrc
+eslint.json
+package.json
+
 
 ##Task Runner##
 Gruntfile.js
