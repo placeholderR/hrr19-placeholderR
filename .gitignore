@@ -6,16 +6,7 @@ build/
 dist/bundle.js
 
 ##Dependencies##
-webpack.config.js
-.eslintignore
-.eslintrc.json
-.lintstagedrc
-eslint.json
 package.json
-
-
-##Task Runner##
-Gruntfile.js
 
 ##Misc##
 thesisREQ.txt
