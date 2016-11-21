@@ -1,5 +1,4 @@
 var path = require('path');
-
 var config = {
   context: path.join(__dirname, 'src'),
   entry: [
@@ -11,22 +10,16 @@ var config = {
   },
   module: {
     loaders: [
+      {include: /\.json$/, loaders: ["json-loader"]},
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel'],
-      },
+        loaders: ['babel']
+      }
     ],
-  },
-  resolveLoader: {
-    root: [
-      path.join(__dirname, 'node_modules'),
-    ],
-  },
-  resolve: {
-    root: [
-      path.join(__dirname, 'node_modules'),
-    ],
-  },
+    resolve: {
+      extensions: ['', '.json', '.jsx', '.js']
+    }
+  }
 };
 module.exports = config;
