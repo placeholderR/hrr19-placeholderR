@@ -49,6 +49,8 @@ app.get('/api/users', function(req, res) {
   res.status(200).send('logged in users here');
 });
 
-app.listen(app.get('port'), function() {
-  console.info('server is listening to http://localhost:%s', app.get('port'));
-});
+if (!module.parent) {
+  app.listen(app.get('port'), function() {
+    console.info('server is listening to http://localhost:%s', app.get('port'));
+  });
+}
