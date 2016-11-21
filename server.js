@@ -40,15 +40,6 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-app.get('/api/studios', function(req, res) {
-  // show studios profiles from db
-  res.status(200).send('studio\'s page');
-});
-
-app.get('/api/users', function(req, res) {
-  res.status(200).send('logged in users here');
-});
-
 if (!module.parent) {
   app.listen(app.get('port'), function() {
     console.info('server is listening to http://localhost:%s', app.get('port'));
