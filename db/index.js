@@ -1,14 +1,23 @@
-var mysql = require('mysql');
+var Sequelize = require('sequelize');
+var db = new Sequelize('stageup', 'root', '');
 
-var connection = mysql.createConnection({
-  user: 'root',
-  password: '',
-  database: 'stageup'
+// defining models using js, instead of a schema file
+var Ticket = db.define('Ticket', {
+  name: Sequelize.STRING
 });
 
-connection.connect(null, function(err) {
-  if (err) console.log(err,'error!!!');
-  console.log('Database is connected...')
+var Studio = db.define('Studio', {
+  name: Sequelize.STRING,
+  img: Sequelize.STRING
 });
 
-module.exports = connection;
+Studio.belongsTo(Ticket);
+
+Ticket.hasMany(Studio);
+
+
+Studio.sync();
+Ticket.sync();
+
+exports.Studio = Studio;
+exports.Ticket = Ticket;
