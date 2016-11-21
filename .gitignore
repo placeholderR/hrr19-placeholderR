@@ -8,7 +8,7 @@ dist/bundle.js
 ##Dependencies##
 webpack.config.js
 .eslintignore
-.eslintrc
+.eslintrc.json
 .lintstagedrc
 eslint.json
 package.json
