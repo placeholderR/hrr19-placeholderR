@@ -3,7 +3,8 @@ var db = new Sequelize('stageup', 'root', '');
 
 // defining models using js, instead of a schema file
 var Ticket = db.define('Ticket', {
-  name: Sequelize.STRING
+  name: Sequelize.STRING,
+  rush: Sequelize.STRING
 });
 
 var Studio = db.define('Studio', {
@@ -11,9 +12,9 @@ var Studio = db.define('Studio', {
   img: Sequelize.STRING
 });
 
-Studio.belongsTo(Ticket);
+Ticket.belongsTo(Studio);
 
-Ticket.hasMany(Studio);
+Studio.hasMany(Ticket);
 
 
 Studio.sync();
