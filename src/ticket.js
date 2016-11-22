@@ -32,16 +32,23 @@ export default class Ticket extends React.Component {
   handleCreate(e) {
     e.preventDefault();
 
-    this.props.createTicket(
-      {
-        name: this.refs.createInput.value,
-        date1: this.refs.createDate1.value,
-        date2: this.refs.createDate2.value,
-        group: this.refs.createGroup.checked,
-        comp: this.refs.createComp.checked,
-        rush: this.refs.createRush.checked
-      }
-    );
+    fetch('/api/tickets', {
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          name: this.refs.createInput.value,
+          rush: this.refs.createRush.value || false
+        }
+      )
+    })
+    .then( body => {
+      this.props.createTicket(body);
+    })
+
     // resetting fields
     this.refs.createInput.value = '';
     this.refs.createDate1.value = '';
