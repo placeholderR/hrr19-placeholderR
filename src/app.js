@@ -23,6 +23,25 @@ export default class App extends React.Component {
       tickets: []
     };
   }
+  componentDidMount() {
+    fetch('/api/tickets', {
+      method: 'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      console.log(json, 'json!!!!');
+      this.setState({tickets: json})
+    })
+    .catch(err => {
+      console.log(err,'error!!!!');
+    })
+  }
   render() {
     return(
       <div>
@@ -38,11 +57,7 @@ export default class App extends React.Component {
     );
   }
   createTicket(ticket) {
-    // console.log('our object',ticket);
-    this.state.tickets.push({
-      ticket
-    });
-
-    this.setState({tickets: this.state.tickets});
+    console.log('our object',ticket);
+    this.componentDidMount();
   }
 }
