@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   var webpackConfig = require("./webpack.config.js");
   grunt.initConfig({
     clean: {
-      js: ['./dist/**/*.js']
+      js: ['./client/dist/**/*.js']
     },
     webpack: {
       options: webpackConfig,
@@ -12,7 +12,7 @@ module.exports = function (grunt) {
       js: {
         files: {
           // outputting all js files in src to bundle.js
-          './dist/bundle.js': 'src/**/*.js'
+          './client/dist/bundle.js': 'client/**/*.js'
         }
       }
     },
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
       options: {
         configFile: './eslintrc.json'
       },
-      target: ['./src/**/**.js', './test/**/*.js']
+      target: ['./client/**/**.js', './test/**/*.js']
     }
   });
   grunt.loadNpmTasks('grunt-contrib-clean');

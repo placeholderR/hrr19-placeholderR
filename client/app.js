@@ -1,8 +1,8 @@
 import React from 'react';
-import StudiosList from './studiosList';
-import {StagesList} from './stagesList';
+import StudiosList from './studios/studiosList';
+import {StagesList} from './stages/stagesList';
 import Nav from './nav';
-import Ticket from './ticket';
+import Ticket from './ticket/ticket';
 
 const studios = [
   {
