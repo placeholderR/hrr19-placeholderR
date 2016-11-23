@@ -5,7 +5,8 @@ module.exports = {
     get: function (req, res, cb) {
       db.Ticket.findAll()
       .then(function(tickets) {
-        console.log(res.json(tickets), 'res');
+        //console.log(res.json(tickets), 'res');
+        cb(tickets);
       })
     },
     post: function (req, res) {
@@ -14,11 +15,13 @@ module.exports = {
           where:
           {
             name: req.body.name,
+            group: req.body.group,
+            comp: req.body.comp,
             rush: req.body.rush
           }
         })
       .then(function(ticket) {
-        console.log(req.body.name, 'req');
+        //console.log(req.body.name, 'req');
         res.sendStatus(201);
       });
     }
