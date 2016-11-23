@@ -2,8 +2,11 @@ node_modules/
 bower_components/
 *.log
 
-build/
-client/dist/bundle.js
+# exclude everything
+client/dist/*
+
+# exception to the rule
+!client/dist/.gitkeep
 
 ##Dependencies##
 package.json
