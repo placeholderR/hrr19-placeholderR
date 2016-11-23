@@ -2,8 +2,6 @@ node_modules/
 bower_components/
 *.log
 
-# exclude everything
-client/dist/*
 
 # exception to the rule
 !client/dist/.gitkeep
