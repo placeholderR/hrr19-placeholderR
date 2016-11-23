@@ -5,7 +5,6 @@ const style = {
   width: '70px',
   backgroundColor: '',
   padding: '1em',
-  marginLeft: '15%',
   display: 'inline-block',
   fontSize: '9px',
   fontWeight: 'bold',
