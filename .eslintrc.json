@@ -29,7 +29,7 @@
   "rules": {
     "indent": ["error", 2],
     "no-undef": 0,
-    "no-console": 0,
+    "no-console": 2,
     "no-unused-vars": 0
   }
 }
