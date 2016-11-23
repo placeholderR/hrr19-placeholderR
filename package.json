@@ -6,7 +6,8 @@
   "scripts": {
     "lint-staged": "lint-staged",
     "compile": "webpack",
-    "start": "grunt && node server/server.js",
+    "start": "node server/server.js",
+    "dev": "grunt && node server/server.js",
     "test": "./node_modules/.bin/mocha --reporter spec --compilers js:babel-core/register **/*test.js",
     "post-install": "npm run compile"
   },
