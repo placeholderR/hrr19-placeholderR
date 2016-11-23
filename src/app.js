@@ -1,6 +1,6 @@
 import React from 'react';
 import StudiosList from './studiosList';
-import StagesList from './stagesList';
+import {StagesList} from './stagesList';
 import Nav from './nav';
 import Ticket from './ticket';
 
@@ -31,15 +31,14 @@ export default class App extends React.Component {
         'Content-Type':'application/json'
       }
     })
-    .then(response => {
-      return response.json();
+    .then(promise => {
+      return promise.json();
     })
-    .then(json => {
-      console.log(json, 'json!!!!');
-      this.setState({tickets: json})
+    .then(models => {
+      this.setState({tickets: models});
     })
     .catch(err => {
-      console.log(err,'error!!!!');
+      //console.log(err,'error!!!!');
     })
   }
   render() {
@@ -50,14 +49,12 @@ export default class App extends React.Component {
         <Ticket
           createTicket={this.createTicket.bind(this)}
         />
-        <StagesList
-          tickets={this.state.tickets}
-        />
+        <StagesList tickets={this.state.tickets} />
       </div>
     );
   }
   createTicket(ticket) {
-    console.log('our object',ticket);
+    //console.log('our object',ticket);
     this.componentDidMount();
   }
 }
