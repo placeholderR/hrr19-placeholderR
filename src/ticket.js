@@ -40,8 +40,10 @@ export default class Ticket extends React.Component {
       method: 'POST',
       body: JSON.stringify(
         {
-          name: this.refs.createInput.value,
-          rush: this.refs.createRush.value || false
+          name : this.refs.createInput.value,
+          group: this.refs.createGroup.checked,
+          comp : this.refs.createComp.checked,
+          rush : this.refs.createRush.checked
         }
       )
     })
