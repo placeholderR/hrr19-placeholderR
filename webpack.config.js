@@ -5,7 +5,7 @@ var config = {
     './main.js',
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'client/dist'),
     filename: 'bundle.js',
   },
   module: {
