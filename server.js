@@ -10,7 +10,7 @@ var morgan = require('morgan');
 var parser = require('body-parser');
 
 // Router
-var router = require('./routes.js');
+var router = require('./server/routes.js');
 
 var app = express();
 module.exports.app = app;
@@ -42,6 +42,6 @@ app.use(webpackDevMiddleware(compiler, {
 
 if (!module.parent) {
   app.listen(app.get('port'), function() {
-    console.info('server is listening to http://localhost:%s', app.get('port'));
+    //console.info('server is listening to http://localhost:%s', app.get('port'));
   });
 }
