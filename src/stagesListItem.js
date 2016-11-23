@@ -1,10 +1,9 @@
 import React from 'react';
-import Ticket from './ticket';
 
 const style = {
   height: '5px',
   width: '70px',
-  backgroundColor: '', // light red, not very blinding
+  backgroundColor: '',
   padding: '1em',
   marginLeft: '15%',
   display: 'inline-block',
@@ -17,14 +16,12 @@ const label = {
   option: ''
 };
 
-export default class StagesListItem extends React.Component {
+export class StagesListItem extends React.Component {
   render() {
-    style.backgroundColor= this.props.ticket.rush === true ? '#ce2323' : '#bbb';
+    style.backgroundColor = this.props.ticket.rush === true ? '#ce2323' : '#bbb';
     label.option = this.props.ticket.group === true ? ' G' : this.props.ticket.comp === true ? ' C' : '';
-    return(
-      <div style={style}>
-        {this.props.ticket.name + label.option}
-      </div>
+    return (
+      <li style={style} id={this.props.ticket.id}>{this.props.ticket.name + label.option}</li>
     );
-  };
-};
+  }
+}
