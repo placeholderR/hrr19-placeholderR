@@ -2,11 +2,10 @@ var db = require('../db');
 
 module.exports = {
   tickets: {
-    get: function (req, res, cb) {
+    get: function (req, res) {
       db.Ticket.findAll()
       .then(function(tickets) {
-        //console.log(res.json(tickets), 'res');
-        cb(tickets);
+        res.json(tickets);
       })
     },
     post: function (req, res) {
