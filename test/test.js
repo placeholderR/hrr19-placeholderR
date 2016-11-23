@@ -1,6 +1,6 @@
 import assert from 'assert';
 import chai from 'chai';
-import App from '../src/app';
+import App from '../client/app';
 var expect = chai.expect;
 
 describe('Frontend', function() {
