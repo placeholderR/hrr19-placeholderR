@@ -3,7 +3,7 @@ import React from 'react'
 import StudiosHeader from './studiosHeader'
 import StudiosListItem from './studiosListItem'
 
-export default class StudiosList extends React.Component {
+export class StudiosList extends React.Component {
   renderItems() {
     return _.map(this.props.studios, (studio, index) => <StudiosListItem key={index} {...studio} />);
   }
