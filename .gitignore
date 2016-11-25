@@ -3,8 +3,9 @@ bower_components/
 *.log
 
 
+
 # exception to the rule
-!client/dist/.gitkeep
+!server/config/config.js
 
 ##Dependencies##
 package.json

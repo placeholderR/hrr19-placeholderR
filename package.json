@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint-staged": "lint-staged",
-    "compile": "webpack",
-    "start": "node server/server.js",
-    "dev": "grunt && node server/server.js",
-    "test": "./node_modules/.bin/mocha --reporter spec --compilers js:babel-core/register **/*test.js",
-    "post-install": "npm run compile"
+    "start": "NODE_ENV=production node server/server.js",
+    "dev": " NODE_ENV=development grunt && node server/server.js",
+    "test": "./node_modules/.bin/mocha --reporter spec --compilers js:babel-core/register **/*test.js"
   },
   "lint-staged": {
     "*.js": "eslint"
