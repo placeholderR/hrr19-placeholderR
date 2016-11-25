@@ -1,6 +1,12 @@
 var Sequelize = require('sequelize');
 var heroku = require('../config/config.js');
-var db = new Sequelize(heroku.HEROKU_MYSQL_URI);
+var db = null;
+var env = process.env.NODE_ENV;
+if (env === 'production') {
+  db = new Sequelize(heroku.HEROKU_MYSQL_URI);
+} else {
+  db = new Sequelize(heroku.LOCAL_DB);
+}
 
 // defining models using js, instead of a schema file
 var Ticket = db.define('Ticket', {
