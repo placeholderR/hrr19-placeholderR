@@ -1,6 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+import Stage from './stage';
+import Nav from './nav';
+import Home from './home';
+import Studio from './studio';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <div>
+    <Nav />
+    <Home />
+    <Studio />
+    <Stage />
+  </div>, document.getElementById('app'));
 
