@@ -4,12 +4,12 @@ import Stage from './stage';
 import Nav from './nav';
 import Home from './home';
 import Studio from './studio';
+import StageBoard from './stages/stageBoard';
+
+
 
 ReactDOM.render(
-  <div>
-    <Nav />
-    <Home />
-    <Studio />
-    <Stage />
-  </div>, document.getElementById('app'));
+  <StageBoard ticketPosition={[0,0]} />,
+  document.getElementById('app')
+);
 

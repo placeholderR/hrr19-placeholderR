@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import React from 'react';
-import {StagesListItem} from './stagesListItem';
+import React, { Component, PropTypes } from 'react';
+import StagesListItem from './stagesListItem';
 
 const style = {
   'backgroundColor': 'grey',
@@ -13,45 +13,24 @@ const style = {
   'textAlign': 'center'
 };
 
-export class StagesList extends React.Component {
+export default class StagesList extends Component {
   render() {
-
+    const stageNames = ['Image Match', 'DP2', 'Color', 'Correction', 'Packaging', 'Printing', 'ID Laminate', 'Done', 'Invoiced'];
     if (this.props.tickets.length !== 0) {
       return(
         <div id='stage' style={{'padding': '5em'}}>
           <div style={style}>
-            <span>Image Match</span>
-            {_.map(this.props.tickets, (ticket, index) => {
-              return <StagesListItem key={index} ticket={ticket} />
-            })}
-          </div>
-          <div style={style}>
-            <span>DP2</span>
-          </div>
-          <div style={style}>
-            <span>Color Correction</span>
-          </div>
-          <br />
-          <div style={style}>
-            <span>Packaging</span>
-          </div>
-          <div style={style}>
-            <span>Printing</span>
-          </div>
-          <div style={style}>
-            <span>ID Laminate</span>
-          </div>
-          <br />
-          <div style={style}>
-            <span>Done</span>
-          </div>
-          <div style={style}>
-            <span>Invoiced</span>
+            <span>{stageNames[0]}</span>
+            {this.props.children}
           </div>
         </div>
       );
     } else {
-      return(<div>Loading...</div>)
+      return(<div style={style}></div>)
     }
   }
 }
+
+StagesList.propTypes = {
+  tickets: PropTypes.array.isRequired
+};
