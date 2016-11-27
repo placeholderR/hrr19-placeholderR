@@ -1,25 +1,32 @@
+var webpack = require('webpack');
 var path = require('path');
-var config = {
-  context: path.join(__dirname, 'client'),
+
+module.exports = {
+  devtool: 'inline-source-map',
   entry: [
-    './main.js',
+    'webpack-dev-server/client?http://127.0.0.1:8080/',
+    'webpack/hot/only-dev-server',
+    './client'
   ],
   output: {
-    path: path.join(__dirname, '/client/dist'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, 'client/dist'),
+    filename: 'bundle.js'
+  },
+  resolve: {
+    modulesDirectories: ['node_modules', 'client'],
+    extensions: ['', '.js']
   },
   module: {
     loaders: [
-      {include: /\.json$/, loaders: ["json-loader"]},
       {
-        test: /\.jsx?$/,
+        test: /\jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel']
+        loaders: ['react-hot-loader/webpack', 'babel?presets[]=react,presets[]=es2015']
       }
-    ],
-    resolve: {
-      extensions: ['', '.json', '.jsx', '.js']
-    }
-  }
-};
-module.exports = config;
+    ]
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
+}
