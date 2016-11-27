@@ -1,17 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
-module.exports = {
-  devtool: 'eval',
+var config = {
+  context: path.join(__dirname, 'client'),
   entry: [
-    './client',
+    './index.js',
   ],
   output: {
     path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js',
-  },
-  resolve: {
-    modulesDirectories: ['node_modules', 'src'],
-    extensions: ['', '.json', '.jsx', '.js']
   },
   module: {
     loaders: [
@@ -22,7 +18,12 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    modulesDirectories: ['node_modules', 'src'],
+    extensions: ['', '.json', '.jsx', '.js']
+  },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
-}
+};
+module.exports = config;
