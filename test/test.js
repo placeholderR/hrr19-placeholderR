@@ -1,15 +1,15 @@
 import assert from 'assert';
 import chai from 'chai';
-import App from '../client/app';
+import Stage from '../client/stage';
 var expect = chai.expect;
 
 describe('Frontend', function() {
-  describe('App', function() {
+  describe('Stage', function() {
     it('should exist', function() {
-      expect(App).to.exist;
+      expect(Stage).to.exist;
     });
     it('should have a render method', function() {
-      expect(App.prototype.render).to.be.a('Function');
+      expect(Stage.prototype.render).to.be.a('Function');
     });
   });
 });
