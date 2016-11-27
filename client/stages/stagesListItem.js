@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const style = {
   height: '5px',
@@ -15,7 +15,7 @@ const label = {
   option: ''
 };
 
-export class StagesListItem extends React.Component {
+export default class StagesListItem extends Component {
   render() {
     style.backgroundColor = this.props.ticket.rush === true ? '#ce2323' : '#bbb';
     label.option = this.props.ticket.group === true ? ' G' : this.props.ticket.comp === true ? ' C' : '';
