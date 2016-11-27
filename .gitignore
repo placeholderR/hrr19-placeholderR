@@ -30,6 +30,7 @@ bower_components/
 
 # exception to the rule
 !server/config/config.js
+!client/dist/bundle.js
 
 ##Misc##
 thesisREQ.txt

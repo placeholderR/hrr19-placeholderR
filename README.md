@@ -24,6 +24,23 @@
 
 > Some usage instructions
 
+Sandbox Mode
+```
+grunt
+webpack
+npm run sandbox
+in new terminal > webpack --watch --progress
+make changes in client folder
+ctrl + c to close webpack watching in other terminal
+npm run dev
+```
+
+Production
+```
+npm run prod
+npm start
+```
+
 ## Requirements
 
 - Node 0.10.x
