@@ -1,22 +1,8 @@
 import React from 'react';
-import StudiosList from './studios/studiosList';
 import {StagesList} from './stages/stagesList';
-import Nav from './nav';
 import Ticket from './ticket/ticket';
 
-const studios = [
-  {
-    name: 'Studio1',
-    'img': 'http://icons.iconarchive.com/icons/ncrow/mega-pack-2/256/Pinnacle-Studio-icon.png'
-  },
-  {
-    name: 'Studio2',
-    'img': 'http://icons.iconarchive.com/icons/ncrow/mega-pack-2/256/Pinnacle-Studio-icon.png'
-  }
-];
-
-
-export default class App extends React.Component {
+export default class Stage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,8 +30,6 @@ export default class App extends React.Component {
   render() {
     return(
       <div>
-        <Nav />
-        <h1>stageUp - Track your order stages with ease!</h1>
         <Ticket
           createTicket={this.createTicket.bind(this)}
         />

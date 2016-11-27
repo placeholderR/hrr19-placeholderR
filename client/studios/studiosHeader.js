@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class StudiosHeader extends React.Component {
+export class StudiosHeader extends React.Component {
   render() {
     return(
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class StudiosListItem extends React.Component {
+export class StudiosListItem extends React.Component {
   render() {
     return(
       <tr>
