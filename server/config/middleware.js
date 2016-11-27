@@ -1,5 +1,6 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 module.exports = function (app, express) {
   app.use(morgan('dev'));
