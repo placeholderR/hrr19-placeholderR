@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import StagesListItem from './stagesListItem';
-import StagesList from './stagesList';
-import { moveTicket } from '../game';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import BoardStage from './boardStage';
 
 const ticket = {
-  name: 'Hamlkin',
+  name: 'Hamlin',
   date: '2016-11-27',
   date2: '2016-11-28',
   group: true,
@@ -19,23 +18,20 @@ export class StageBoard extends Component {
     const x = i % 3;
     const y = Math.floor(i / 3);
 
-    const [ticketX, ticketY] = this.props.ticketPosition;
-
-    const piece = (x === ticketX && y === ticketY) ? <StagesListItem ticket={ticket}/> : null;
-
     return (
-      <div key={i}
-           onClick={() => this.handleTicketClick(x, y)}
-      >
-        <StagesList tickets={[ticket]}>
-          {piece}
-        </StagesList>
+      <div key={i}>
+        <BoardStage x={x} y={y}>
+          {this.renderPiece(x, y)}
+        </BoardStage>
       </div>
     );
   }
 
-  handleTicketClick(toX, toY) {
-    moveTicket(toX, toY);
+  renderPiece(x, y) {
+    const [ticketX, ticketY] = this.props.ticketPosition;
+    if (x === ticketX && y === ticketY) {
+      return <StagesListItem ticket={ticket}/>;
+    }
   }
   render() {
     const squares = [];
