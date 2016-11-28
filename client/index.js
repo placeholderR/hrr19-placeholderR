@@ -4,16 +4,11 @@ import Stage from './stage';
 import Nav from './nav';
 import Home from './home';
 import Studio from './studio';
-import StageBoard from './stages/stageBoard';
-import { observe } from './game';
 
-const rootEl = document.getElementById('app');
-
-observe(ticketPosition =>
-  ReactDOM.render(
-    <Stage ticketPosition={ticketPosition}/>,
-    rootEl
-  )
-
-);
-
+ReactDOM.render(
+  <div>
+    <Nav />
+    <Home />
+    <Studio />
+    <Stage />
+  </div>, document.getElementById('app'));
