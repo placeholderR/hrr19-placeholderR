@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import StagesListItem from './stagesListItem';
 import StagesList from './stagesList';
+import { moveTicket } from '../game';
 
 const ticket = {
   name: 'Hamlkin',
@@ -17,15 +18,22 @@ export default class StageBoard extends Component {
     const y = Math.floor(i / 3);
 
     const [ticketX, ticketY] = this.props.ticketPosition;
+
     const piece = (x === ticketX && y === ticketY) ? <StagesListItem ticket={ticket}/> : null;
 
     return (
-      <div key={i}>
+      <div key={i}
+           onClick={() => this.handleTicketClick(x, y)}
+      >
         <StagesList tickets={[ticket]}>
           {piece}
         </StagesList>
       </div>
     );
+  }
+
+  handleTicketClick(toX, toY) {
+    moveTicket(toX, toY);
   }
   render() {
     const squares = [];
