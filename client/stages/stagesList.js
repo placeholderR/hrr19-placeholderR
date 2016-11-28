@@ -1,32 +1,57 @@
 import _ from 'lodash';
-import React, { Component, PropTypes } from 'react';
-import StagesListItem from './stagesListItem';
+import React from 'react';
+import {StagesListItem} from './stagesListItem';
 
 const style = {
   'backgroundColor': 'grey',
-  width: '100px',
-  height: '100px',
   'cursor': 'pointer',
+  'height': '100px',
+  'width': '100px',
+  'display': 'inline-table',
+  'padding': '2em',
   'border': '2px solid black',
-  overflow: 'hidden'
+  'textAlign': 'center'
 };
 
-export default class StagesList extends Component {
+export class StagesList extends React.Component {
   render() {
-    const stageNames = ['Image Match', 'DP2', 'Color', 'Correction', 'Packaging', 'Printing', 'ID Laminate', 'Done', 'Invoiced'];
+
     if (this.props.tickets.length !== 0) {
       return(
-        <div style={style}>
-          <span></span>
-          {this.props.children}
+        <div id='stage' style={{'padding': '5em'}}>
+          <div style={style}>
+            <span>Image Match</span>
+            {_.map(this.props.tickets, (ticket, index) => {
+              return <StagesListItem key={index} ticket={ticket} />
+            })}
+          </div>
+          <div style={style}>
+            <span>DP2</span>
+          </div>
+          <div style={style}>
+            <span>Color Correction</span>
+          </div>
+          <br />
+          <div style={style}>
+            <span>Packaging</span>
+          </div>
+          <div style={style}>
+            <span>Printing</span>
+          </div>
+          <div style={style}>
+            <span>ID Laminate</span>
+          </div>
+          <br />
+          <div style={style}>
+            <span>Done</span>
+          </div>
+          <div style={style}>
+            <span>Invoiced</span>
+          </div>
         </div>
       );
     } else {
-      return(<div style={style}></div>)
+      return(<div>Loading...</div>)
     }
   }
 }
-
-StagesList.propTypes = {
-  tickets: PropTypes.array.isRequired
-};
