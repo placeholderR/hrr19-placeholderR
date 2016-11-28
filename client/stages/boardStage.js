@@ -4,14 +4,15 @@ import { moveTicket } from '../game';
 import { ItemTypes } from '../Constants';
 import { DropTarget } from 'react-dnd';
 
-const ticket = {
+// this.state.tickets or this.props.tickets
+const ticket = [{
   name: 'Hamlin',
   date: '2016-11-27',
   date2: '2016-11-28',
   group: true,
   comp: false,
   rush: true
-};
+}];
 
 const stageTarget = {
   drop(props) {
@@ -36,7 +37,7 @@ export class BoardStage extends Component {
         width: '100%',
         height: '100%'
       }}>
-      <StagesList tickets={[ticket]}>
+      <StagesList tickets={this.props.tickets}>
         {this.props.children}
       </StagesList>
         {isOver &&

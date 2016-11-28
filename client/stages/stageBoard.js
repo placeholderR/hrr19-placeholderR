@@ -20,7 +20,7 @@ export class StageBoard extends Component {
 
     return (
       <div key={i}>
-        <BoardStage x={x} y={y}>
+        <BoardStage x={x} y={y} tickets={this.props.tickets}>
           {this.renderPiece(x, y)}
         </BoardStage>
       </div>

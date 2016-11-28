@@ -11,7 +11,7 @@ const rootEl = document.getElementById('app');
 
 observe(ticketPosition =>
   ReactDOM.render(
-    <StageBoard ticketPosition={ticketPosition} />,
+    <Stage ticketPosition={ticketPosition}/>,
     rootEl
   )
 

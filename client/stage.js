@@ -1,6 +1,7 @@
 import React from 'react';
 import {StagesList} from './stages/stagesList';
 import Ticket from './ticket/ticket';
+import StageBoard from './stages/stageBoard';
 
 export default class Stage extends React.Component {
   constructor(props) {
@@ -33,7 +34,10 @@ export default class Stage extends React.Component {
         <Ticket
           createTicket={this.createTicket.bind(this)}
         />
-        <StagesList tickets={this.state.tickets} />
+        <StageBoard
+          ticketPosition={this.props.ticketPosition}
+          tickets={this.state.tickets}
+        />
       </div>
     );
   }

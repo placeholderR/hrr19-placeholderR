@@ -34,7 +34,7 @@ export class StagesListItem extends Component {
       opacity: isDragging ? 0.5 : 1,
       cursor: 'move'
     };
-
+    //console.log(this.props,'props of stageListItem');
     style.backgroundColor = this.props.ticket.rush === true ? '#ce2323' : '#bbb';
     label.option = this.props.ticket.group === true ? ' G' : this.props.ticket.comp === true ? ' C' : '';
     return connectDragSource(

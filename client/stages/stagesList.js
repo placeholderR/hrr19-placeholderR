@@ -11,6 +11,7 @@ const style = {
   overflow: 'hidden'
 };
 
+// this.props.children is the ticket
 export default class StagesList extends Component {
   render() {
     const stageNames = ['Image Match', 'DP2', 'Color', 'Correction', 'Packaging', 'Printing', 'ID Laminate', 'Done', 'Invoiced'];
@@ -18,7 +19,9 @@ export default class StagesList extends Component {
       return(
         <div style={style}>
           <span></span>
-          {this.props.children}
+          {_.map(this.props.tickets, (ticket, index) => {
+            return <StagesListItem key={index} ticket={this.props.children} />
+          })}
         </div>
       );
     } else {
