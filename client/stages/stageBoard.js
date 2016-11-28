@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import StagesListItem from './stagesListItem';
 import StagesList from './stagesList';
 import { moveTicket } from '../game';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const ticket = {
   name: 'Hamlkin',
@@ -12,7 +14,7 @@ const ticket = {
   rush: true
 };
 
-export default class StageBoard extends Component {
+export class StageBoard extends Component {
   renderSquare(i) {
     const x = i % 3;
     const y = Math.floor(i / 3);
@@ -59,3 +61,5 @@ StageBoard.propTypes = {
     PropTypes.number.isRequired
   ).isRequired
 };
+
+export default DragDropContext(HTML5Backend)(StageBoard);
