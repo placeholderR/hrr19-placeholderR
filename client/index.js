@@ -5,11 +5,15 @@ import Nav from './nav';
 import Home from './home';
 import Studio from './studio';
 import StageBoard from './stages/stageBoard';
+import { observe } from './game';
 
+const rootEl = document.getElementById('app');
 
+observe(ticketPosition =>
+  ReactDOM.render(
+    <StageBoard ticketPosition={ticketPosition} />,
+    rootEl
+  )
 
-ReactDOM.render(
-  <StageBoard ticketPosition={[0,0]} />,
-  document.getElementById('app')
 );
 

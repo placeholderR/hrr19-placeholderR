@@ -4,13 +4,11 @@ import StagesListItem from './stagesListItem';
 
 const style = {
   'backgroundColor': 'grey',
+  width: '100px',
+  height: '100px',
   'cursor': 'pointer',
-  'height': '100px',
-  'width': '100px',
-  'display': 'inline-table',
-  'padding': '2em',
   'border': '2px solid black',
-  'textAlign': 'center'
+  overflow: 'hidden'
 };
 
 export default class StagesList extends Component {
@@ -18,11 +16,9 @@ export default class StagesList extends Component {
     const stageNames = ['Image Match', 'DP2', 'Color', 'Correction', 'Packaging', 'Printing', 'ID Laminate', 'Done', 'Invoiced'];
     if (this.props.tickets.length !== 0) {
       return(
-        <div id='stage' style={{'padding': '5em'}}>
-          <div style={style}>
-            <span>{stageNames[0]}</span>
-            {this.props.children}
-          </div>
+        <div style={style}>
+          <span></span>
+          {this.props.children}
         </div>
       );
     } else {
