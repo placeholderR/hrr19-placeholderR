@@ -23,6 +23,16 @@ export default class Ticket extends React.Component {
           <br />
           <span style={{color: 'red'}}>Rush</span><input type='radio' ref='createRush'/>
           <br />
+          <select ref='createStage'>
+            <option>Stage</option>
+            <option>DP2</option>
+            <option>Image Match</option>
+            <option>Color Correction</option>
+            <option>Packaging</option>
+            <option>ID Laminate</option>
+            <option>Done</option>
+            <option>Invoiced</option>
+          </select>
           <button>Add Ticket</button>
         </form>
 
@@ -43,7 +53,10 @@ export default class Ticket extends React.Component {
           name : this.refs.createInput.value,
           group: this.refs.createGroup.checked,
           comp : this.refs.createComp.checked,
-          rush : this.refs.createRush.checked
+          rush : this.refs.createRush.checked,
+          stage: this.refs.createStage.value,
+          date: this.refs.createDate1.value,
+          date2: this.refs.createDate2.value
         }
       )
     })
@@ -58,6 +71,7 @@ export default class Ticket extends React.Component {
     this.refs.createGroup.checked = false;
     this.refs.createComp.checked = false;
     this.refs.createRush.checked = false;
+    this.refs.createStage.value = 'Stage';
 
   }
 }
