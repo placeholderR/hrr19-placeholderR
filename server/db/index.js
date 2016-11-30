@@ -13,7 +13,10 @@ var Ticket = db.define('Ticket', {
   name : Sequelize.STRING,
   group: Sequelize.BOOLEAN,
   comp : Sequelize.BOOLEAN,
-  rush : Sequelize.BOOLEAN
+  rush : Sequelize.BOOLEAN,
+  stage: Sequelize.STRING,
+  date: Sequelize.STRING,
+  date2: Sequelize.STRING
 });
 
 var Studio = db.define('Studio', {
