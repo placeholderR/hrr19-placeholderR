@@ -15,7 +15,10 @@ module.exports = {
           name: req.body.name,
           group: req.body.group,
           comp: req.body.comp,
-          rush: req.body.rush
+          rush: req.body.rush,
+          stage: req.body.stage,
+          date: req.body.date,
+          date2: req.body.date2
         }
       })
     .then(function(ticket) {
