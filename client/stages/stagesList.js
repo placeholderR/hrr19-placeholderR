@@ -17,15 +17,19 @@ export class StagesList extends React.Component {
   render() {
 
     if (this.props.tickets.length !== 0) {
+      //sort here
+      {this.props.tickets.sort((a, b) => {
+        return a.stage > b.stage;
+      })}
       return(
         <div id='stage' style={{'padding': '5em'}}>
         {_.map(this.props.tickets, (ticket, index) => {
-          return <StagesListItem key={index} ticket={ticket} />
+          return <StagesListItem key={index} ticket={ticket} updateTicket={this.props.updateTicket}/>
         })}
         </div>
       );
     } else {
-      return(<div>Loading...</div>)
+      return(<div>There are no tickets currently open...</div>)
     }
   }
 }
