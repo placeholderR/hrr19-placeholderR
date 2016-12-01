@@ -1,5 +1,5 @@
 var heroku = {
-  HEROKU_MYSQL_URI: 'mysql://bbbd4130019141:25337937@us-cdbr-iron-east-04.cleardb.net/heroku_ec16491ee51b22f?reconnect=true',
+  HEROKU_MYSQL_URI: 'mysql://b99e1cfe131e70:9572784e@us-cdbr-iron-east-04.cleardb.net/heroku_6192a6f8d6f0dc4?reconnect=true',
   LOCAL_DB: 'mysql://root:@localhost/stageup'
 };
 
