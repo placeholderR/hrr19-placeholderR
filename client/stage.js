@@ -29,12 +29,18 @@ export default class Stage extends React.Component {
   }
   render() {
     return(
-      <div>
-        <Ticket
-          createTicket={this.createTicket.bind(this)}
-        />
-        <StagesList tickets={this.state.tickets}
-                    updateTicket={this.createTicket.bind(this)} />
+      <div className='container text-center' style={{backgroundColor: '#CDCECE', borderRadius: '20px'}}>
+        <div className='row'>
+          <div className='col-lg-8 col-lg-offset-2 text center'>
+            <Ticket
+              createTicket={this.createTicket.bind(this)}
+            />
+            <br/>
+            <br/>
+            <StagesList tickets={this.state.tickets}
+                        updateTicket={this.createTicket.bind(this)} />
+          </div>
+        </div>
       </div>
     );
   }

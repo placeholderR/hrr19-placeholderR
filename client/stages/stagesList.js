@@ -22,14 +22,18 @@ export class StagesList extends React.Component {
         return a.date > b.date;
       })
       return(
-        <div id='stage' style={{'padding': '5em'}}>
+        <div className='container text-center' id='stage'>
         {_.map(this.props.tickets, (ticket, index) => {
           return <StagesListItem key={index} ticket={ticket} updateTicket={this.props.updateTicket}/>
         })}
         </div>
       );
     } else {
-      return(<div>There are no tickets currently open...</div>)
+      return(
+        <div className='container text-center'>
+          There are no tickets currently open...
+        </div>
+      );
     }
   }
 }
