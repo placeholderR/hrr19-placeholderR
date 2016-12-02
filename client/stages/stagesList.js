@@ -17,10 +17,10 @@ export class StagesList extends React.Component {
   render() {
 
     if (this.props.tickets.length !== 0) {
-      //sort here
-      {this.props.tickets.sort((a, b) => {
-        return a.stage > b.stage;
-      })}
+      //sort dates by oldest first
+      this.props.tickets.sort((a, b) => {
+        return a.date > b.date;
+      })
       return(
         <div id='stage' style={{'padding': '5em'}}>
         {_.map(this.props.tickets, (ticket, index) => {
