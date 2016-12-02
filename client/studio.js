@@ -17,7 +17,11 @@ const studios = [
 export default class Studio extends React.Component {
   render() {
     return (
-      <h2>Studios</h2>
+      <div className='container'>
+        <div className='row'>
+          <h3>ColorMeStudio</h3>
+        </div>
+      </div>
     );
   }
 }
