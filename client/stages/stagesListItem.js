@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import $ from 'jquery';
+import { Button } from 'react-bootstrap/lib'
 
 var style = {
   height: '100px',
@@ -98,7 +99,7 @@ export class StagesListItem extends React.Component {
                 <option key={index} value={name}>{name}</option>)
             })}
             </select>
-            <button onClick={this.changeStage.bind(this)}>Move</button>
+            <Button bsStyle='primary'onClick={this.changeStage.bind(this)}>Move</Button>
             <button onClick={this.editTicket.bind(this)}>Edit</button>
           </div>
         </div>
