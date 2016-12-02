@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+import { Button } from 'react-bootstrap/lib';
 
 const style = {
   height: '150px',
@@ -7,6 +9,8 @@ const style = {
   padding: '3em',
   marginLeft: '15%'
 };
+
+var names = ['DP2', 'Image Match', 'Color Correction', 'Printing', 'ID Laminate', 'Done', 'Invoiced', 'Packaging'];
 
 export default class Ticket extends React.Component {
   render() {
@@ -24,16 +28,14 @@ export default class Ticket extends React.Component {
           <span style={{color: 'red'}}>Rush</span><input type='radio' ref='createRush'/>
           <br />
           <select ref='createStage'>
-            <option>Stage</option>
-            <option>DP2</option>
-            <option>Image Match</option>
-            <option>Color Correction</option>
-            <option>Packaging</option>
-            <option>ID Laminate</option>
-            <option>Done</option>
-            <option>Invoiced</option>
+          <option value=''>Change Stage</option>
+          {_.map(names, (name, index) => {
+
+            return (
+              <option key={index} value={name}>{name}</option>)
+          })}
           </select>
-          <button>Add Ticket</button>
+          <Button bsStyle='primary'>Add Ticket</Button>
         </form>
 
       </div>
