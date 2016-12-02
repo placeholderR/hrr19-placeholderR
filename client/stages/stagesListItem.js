@@ -8,22 +8,38 @@ var style = {
   backgroundColor: '',
   padding: '1em',
   display: 'inline-block',
-  fontSize: '12px',
+  fontSize: '1em',
   fontWeight: 'bold',
   fontFamily: 'sans-serif',
-  listStyle: 'none'
+  listStyle: 'none',
+  fontColor: 'black'
 };
 
 var style2 = {
-  'backgroundColor': 'grey',
+  'backgroundColor': '#E6EDEB',
   'cursor': 'pointer',
   'height': '150px',
-  'width': '690px',
+  'width': '400px',
   'display': 'inline-table',
   'padding': '2em',
-  'border': '2px solid black',
-  'textAlign': 'center'
+  'border': '4px solid #81918E',
+  'textAlign': 'center',
+
 };
+
+
+var style3 = {
+  height: '100px',
+  width: '300px',
+  backgroundColor: '',
+  padding: '1em',
+  display: 'inline-block',
+  fontSize: '1em',
+  fontFamily: 'sans-serif',
+  listStyle: 'none',
+  fontColor: 'black'
+};
+
 
 
 var label = {
@@ -59,37 +75,25 @@ export class StagesListItem extends React.Component {
     this.setState({name: e.target.value});
   }
   render() {
-    style.backgroundColor = this.props.ticket.rush === true ? '#ce2323' : '#bbb';
+    style.backgroundColor = this.props.ticket.rush === true ? '#E75050' : '#429248';
     label.option = this.props.ticket.group === true ? ' G' : this.props.ticket.comp === true ? ' C' : '';
     //console.log(names);
     if($('#' + this.props.ticket.stage)) {
       //console.log('stage ' + this.props.ticket.stage + ' already exists');
 
     }
-    var regex = new RegExp('-', 'g');
-
-    var date = this.state.date;
-    var date2 = this.state.date2;
-    var year = date.slice(0,4);
-    var year2 = date2.slice(0,4);
-    var monthDay = date.slice(-5);
-    var monthDay2 = date2.slice(-5);
-    var newDate = monthDay + '-' + year;
-    var newDate2 = monthDay2 + '-' + year2;
-    newDate.replace(regex, '/');
-    newDate2.replace(regex, '/');
     // if !isEditable
     //console.log(this.state.isEditable);
     if (!this.state.isEditable) {
       return (
-        <div id={this.props.ticket.stage + this.props.ticket.id}style={style2}>
-        <span style={{textAlign: 'center', display: 'block'}}>{this.props.ticket.stage}</span>
+        <div className='container text-center' id={this.props.ticket.stage + this.props.ticket.id} style={style2}>
+        <span style={{fontSize: '2em', textAlign: 'center', display: 'block'}}>{this.props.ticket.stage}</span>
           <ul style={style}>
-          <li>School Name: {this.props.ticket.name}{label.option}</li>
+          <li style={{fontSize: '1.5em'}}>{this.props.ticket.name}{label.option}</li>
           <li>Order Date: {this.state.date}</li>
           <li>Makeup Date: {this.state.date2}</li>
           </ul>
-          <div className='container'>
+          <div>
             <select ref='ChangeStage'>
             <option value=''>Change Stage</option>
             {_.map(names, (name, index) => {
@@ -98,35 +102,37 @@ export class StagesListItem extends React.Component {
                 <option key={index} value={name}>{name}</option>)
             })}
             </select>
-            <button onClick={this.changeStage.bind(this)}>Move</button>
-            <button onClick={this.editTicket.bind(this)}>Edit</button>
+            <button className='btn btn-primary' onClick={this.changeStage.bind(this)}>Move</button>
+            <button className='btn btn-primary' onClick={this.editTicket.bind(this)}>Edit</button>
           </div>
         </div>
       );
     } else {
-      return <div id={this.props.ticket.stage + this.props.ticket.id}style={style2}>
-        <span style={{textAlign: 'center', display: 'block'}}>{this.props.ticket.stage}</span>
-          <form style={style}>
-            School Name: <input
-            type='text'
-            ref='EditName'
-            value={this.state.name}
-            onChange={this.handleNameChange}
-            />
-            Order Date: <input
-            type='date'
-            ref='Date1Name'
-            value={this.state.date}
-            onChange={this.handleDateChange}
-            />
-            Makeup Date: <input
-            type='date'
-            ref='Date2Name'
-            value={this.state.date2}
-            onChange={this.handleDate2Change}
-            />
-          </form>
-          <button onClick={this.saveTicket.bind(this)}>Add</button>
+      return <div className='container text-center'id={this.props.ticket.stage + this.props.ticket.id} style={style2}>
+        <div className='row'>
+          <span style={{textAlign: 'center', display: 'block'}}>{this.props.ticket.stage}</span>
+            <form style={style3}>
+              School Name: <input
+              type='text'
+              ref='EditName'
+              value={this.state.name}
+              onChange={this.handleNameChange}
+              />
+              Order Date: <input
+              type='date'
+              ref='Date1Name'
+              value={this.state.date}
+              onChange={this.handleDateChange}
+              />
+              Makeup Date: <input
+              type='date'
+              ref='Date2Name'
+              value={this.state.date2}
+              onChange={this.handleDate2Change}
+              />
+            </form>
+            <button className='btn btn-primary' onClick={this.saveTicket.bind(this)}>Add</button>
+          </div>
         </div>
     }
     // else
