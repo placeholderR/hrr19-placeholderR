@@ -6,19 +6,19 @@
 
 ## Team
 
-  - __Product Owner__: Jarrett Kennedy
-  - __Scrum Master__: Jarrett Kennedy
-  - __Development Team Members__: Jarrett Kennedy, Jarrett Kennedy
+  - __Full Stack Engineer__: Jarrett Kennedy
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Requirements](#requirements)
+3. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
+    2. [Start](#start)
+    3. [Database](#database)
+    4. [RoadMap](#roadmap)
+4. [Team](#team)
+5. [Contributing](#contributing)
 
 ## Usage
 
@@ -43,22 +43,53 @@ npm start
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node 6.8.0
+- MySQL 2.12.0
+- Express 4.14.0
+- React 15.3.2
+- Sequelize 3.27.0
+- Webpack 1.13.3
 
 ## Development
+Development for this application is currently streamlined using a combination of Grunt task runner with node package manager. The default grunt command is set up to clean bundle.js.
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
+```
+sudo npm install sequelize sequelize-cli mysql webpack webpack-dev-server express -g
 npm install
-bower install
+```
+
+### Start
+Create a local database with MySQL
+```
+sudo mysql -u root -p
+create database stageup;
+exit;
+```
+
+
+build bundle.js first, then start
+```
+webpack
+npm run dev
+```
+
+### Database
+MySQL is a relational database that only needs to be created in your local computer for development testing. Once you have a database created, running the command below will start the server on your local port.
+```
+npm run dev
+```
+
+To Drop a database, just log into your mysql on your terminal window.
+
+```
+sudo mysql -u root -p
+drop DROP DATABASE IF EXISTS stageup;
+create database stageup;
+exit;
 ```
 
 ### Roadmap
