@@ -12,7 +12,7 @@ var style = {
   fontWeight: 'bold',
   fontFamily: 'sans-serif',
   listStyle: 'none',
-  fontColor: 'black'
+  color: ''
 };
 
 var style2 = {
@@ -46,7 +46,32 @@ var label = {
   option: ''
 };
 
-var names = ['DP2', 'Image Match', 'Color Correction', 'Printing', 'ID Laminate', 'Done', 'Invoiced', 'Packaging'];
+var names = ['ImageMatch', 'DP2', 'Color Correction', 'ID Laminate', 'Printing', 'Packaging', 'Invoiced', 'Done'];
+
+var cloneStyle2 = style2;
+
+// array with stages and cooresponding colors
+// var names = [
+//   {'ImageMatch' : '#afb8c6'},
+//   {'DP2' : '#c0afc6'},
+//   {'C/C' : '#db9db4'},
+//   {'ID Laminate' : '#dbab9d'},
+//   {'Printing' : '#eade85'},
+//   {'Packaging' : '#9bea85'},
+//   {'Invoiced' : '#96ddc1'},
+//   {'Done' : '#c5c6c4'}
+// ];
+
+/*
+ImageMatch #afb8c6
+DP2 #c0afc6
+C/C #db9db4
+ID Laminate #dbab9d
+Printing #eade85
+Packaging #9bea85
+Invoiced #96ddc1
+Done #c5c6c4
+*/
 
 
 export class StagesListItem extends React.Component {
@@ -57,9 +82,9 @@ export class StagesListItem extends React.Component {
     // after the edit button is clicked
     this.state = {
       isEditable : false,
-      date: this.props.ticket.date,
-      date2: this.props.ticket.date2,
-      name: this.props.ticket.name
+      date: '',
+      date2: '',
+      name: ''
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleDate2Change = this.handleDate2Change.bind(this);
@@ -75,7 +100,20 @@ export class StagesListItem extends React.Component {
     this.setState({name: e.target.value});
   }
   render() {
-    style.backgroundColor = this.props.ticket.rush === true ? '#E75050' : '#429248';
+    style.backgroundColor = this.props.ticket.rush === true ? '#f40247' : '#82bae0';
+    style.color = this.props.ticket.rush === true ? '#e2e2e2' : '#232222';
+    cloneStyle2.backgroundColor =
+      this.props.ticket.stage === 'ImageMatch' ? '#afb8c6'
+    : this.props.ticket.stage === 'DP2' ? '#c0afc6'
+    : this.props.ticket.stage === 'Color Correction' ? '#db9db4'
+    : this.props.ticket.stage === 'ID Laminate' ? '#dbab9d'
+    : this.props.ticket.stage === 'Printing' ? '#eade85'
+    : this.props.ticket.stage === 'Packaging' ? '#9bea85'
+    : this.props.ticket.stage === 'Invoiced' ? '#96ddc1'
+    : this.props.ticket.stage === 'Done' ? '#c5c6c4'
+    : '#E6EDEB'
+
+
     label.option = this.props.ticket.group === true ? ' G' : this.props.ticket.comp === true ? ' C' : '';
     //console.log(names);
     if($('#' + this.props.ticket.stage)) {
@@ -86,12 +124,12 @@ export class StagesListItem extends React.Component {
     //console.log(this.state.isEditable);
     if (!this.state.isEditable) {
       return (
-        <div className='container text-center' id={this.props.ticket.stage + this.props.ticket.id} style={style2}>
+        <div className='container text-center' id={this.props.ticket.stage + this.props.ticket.id} style={cloneStyle2}>
         <span style={{fontSize: '2em', textAlign: 'center', display: 'block'}}>{this.props.ticket.stage}</span>
           <ul style={style}>
           <li style={{fontSize: '1.5em'}}>{this.props.ticket.name}{label.option}</li>
-          <li>Order Date: {this.state.date}</li>
-          <li>Makeup Date: {this.state.date2}</li>
+          <li>Order Date: {this.props.ticket.date}</li>
+          <li>Makeup Date: {this.props.ticket.date2}</li>
           </ul>
           <div>
             <select ref='ChangeStage'>
@@ -108,7 +146,7 @@ export class StagesListItem extends React.Component {
         </div>
       );
     } else {
-      return <div className='container text-center'id={this.props.ticket.stage + this.props.ticket.id} style={style2}>
+      return <div className='container text-center'id={this.props.ticket.stage + this.props.ticket.id} style={cloneStyle2}>
         <div className='row'>
           <span style={{textAlign: 'center', display: 'block'}}>{this.props.ticket.stage}</span>
             <form style={style3}>
@@ -144,10 +182,13 @@ export class StagesListItem extends React.Component {
     // edit a ticket here
     // set the state isEditable to true
     // invoke renderEdit method
-    var edit = this.state.isEditable;
-    edit = true;
-    this.setState({isEditable: edit});
-
+    var body = {
+      isEditable: true,
+      name: this.props.ticket.name,
+      date: this.props.ticket.date,
+      date2: this.props.ticket.date2
+    };
+    this.setState(body);
   }
   saveTicket(e) {
     // edit a ticket here
