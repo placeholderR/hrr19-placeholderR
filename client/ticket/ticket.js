@@ -12,9 +12,41 @@ var style2 = {
   'textAlign': 'center'
 };
 
-var names = ['DP2', 'Image Match', 'Color Correction', 'Printing', 'ID Laminate', 'Done', 'Invoiced', 'Packaging'];
+var names = ['ImageMatch', 'DP2', 'Color Correction', 'ID Laminate', 'Printing', 'Packaging', 'Invoiced', 'Done'];
+
+var today = new Date();
+var month = today.getMonth();
+var date = today.getDate();
+var datePadding = date < 10 ? ('0' + date) : date;
+var monthPadding = (month < 10) ? ('0' + month + 1) : month + 1;
+var fullDate = today.getFullYear() + '-' + monthPadding + '-' + datePadding;
+/*
+ImageMatch #afb8c6
+DP2 #c0afc6
+C/C #db9db4
+ID Laminate #dbab9d
+Printing #eade85
+Packaging #9bea85
+Invoiced #96ddc1
+Done #c5c6c4
+*/
 
 export default class Ticket extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: fullDate,
+      date2: fullDate
+    };
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleDate2Change = this.handleDate2Change.bind(this);
+  }
+  handleDateChange(e) {
+    this.setState({date: e.target.value});
+  }
+  handleDate2Change(e) {
+    this.setState({date2: e.target.value});
+  }
   render() {
     return(
       <div className='container text-center' style={style2}>
@@ -31,12 +63,18 @@ export default class Ticket extends React.Component {
               Order Date:
               <input
               type='date'
-              ref='createDate1'/>
+              ref='createDate1'
+              value={this.state.date}
+              onChange={this.handleDateChange}
+              />
               <br />
               Makeup Date:
               <input
               type='date'
-              ref='createDate2'/>
+              ref='createDate2'
+              value={this.state.date2}
+              onChange={this.handleDate2Change}
+              />
               <br />
               Group:
               <input
@@ -99,7 +137,6 @@ export default class Ticket extends React.Component {
     this.refs.createGroup.checked = false;
     this.refs.createComp.checked = false;
     this.refs.createRush.checked = false;
-    this.refs.createStage.value = 'Stage';
 
   }
 }
