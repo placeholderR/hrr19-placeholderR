@@ -100,7 +100,7 @@ export class StagesListItem extends React.Component {
     this.setState({name: e.target.value});
   }
   render() {
-    style.backgroundColor = this.props.ticket.rush === true ? '#f40247' : '#fff';
+    style.backgroundColor = this.props.ticket.rush === true ? '#f40247' : 'white';
     style.color = this.props.ticket.rush === true ? '#e2e2e2' : '#232222';
     cloneStyle2.backgroundColor =
       this.props.ticket.stage === 'ImageMatch' ? '#afb8c6'
