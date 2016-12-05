@@ -44,8 +44,7 @@ export default class Stage extends React.Component {
       </div>
     );
   }
-  createTicket(ticket) {
-    //console.log('our object',ticket);
+  createTicket() {
     this.componentDidMount();
   }
 }

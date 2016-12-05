@@ -19,7 +19,7 @@ export class StagesList extends React.Component {
     if (this.props.tickets.length !== 0) {
       //sort dates by oldest first
       this.props.tickets.sort((a, b) => {
-        return a.date > b.date;
+        return a.date < b.date;
       })
       return(
         <div className='container text-center' id='stage'>
