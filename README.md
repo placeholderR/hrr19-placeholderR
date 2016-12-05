@@ -1,6 +1,6 @@
 # stageUp
 
-![](https://travis-ci.org/placeholderR/hrr19-placeholderR.svg?branch=master)
+![](https://travis-ci.org/placeholderR/stageUp.svg?branch=master)
 
 > App for tracking the stages of a order id for studio clients
 
