@@ -30,7 +30,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['clean']);
+  grunt.registerTask('default', ['clean'], ['concat']);
 
   grunt.registerTask('lint', ['eslint']);
 
